@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Avatar } from "@heroui/avatar";
-import ThemeSwitchButton from "@/components/theme-switch";
+import ThemeSwitch from "@/components/theme-switch";
+import useHideOnScroll from "@/hooks/useHideOnScroll";
+
 import {
     DownloadIcon,
     HomeIcon,
@@ -12,7 +14,7 @@ import {
     TrophyIcon,
     FolderIcon,
     BookOpenIcon,
-    MenuIcon
+    MenuIcon,
 } from "lucide-react";
 
 const navItems = [
@@ -26,73 +28,98 @@ const navItems = [
 export default function Sidebar() {
     const pathname = usePathname();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    const openSidebar = () => setSidebarOpen(true);
+    const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
     const closeSidebar = () => setSidebarOpen(false);
 
+    // Detect screen size
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                setSidebarOpen(true);
-            } else {
-                setSidebarOpen(false);
-            }
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            setSidebarOpen(!mobile); // auto open on desktop, close on mobile
         };
-        handleResize();
+        handleResize(); // run once
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    const hideNav = useHideOnScroll(isMobile); // only apply on mobile
+
+    useEffect(() => {
+        if (isMobile) {
+            if (isSidebarOpen) {
+                document.body.classList.add("overflow-hidden");
+            } else {
+                document.body.classList.remove("overflow-hidden");
+            }
+        }
+    }, [isSidebarOpen, isMobile]);
+
     return (
         <>
-            <button
-                onClick={openSidebar}
-                className={`fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-zinc-900 shadow-md md:hidden transition-opacity duration-200
-        ${isSidebarOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-            >
-                <MenuIcon className="w-6 h-6 text-black dark:text-white" />
-            </button>
+            {/* Mobile Nav Bar */}
+            {isMobile && (
+                <nav
+                    className={`fixed top-0 left-0 w-full h-16 z-20 bg-surface-light dark:bg-surface-dark backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 px-4 flex items-center justify-between md:hidden shadow-md transition-transform duration-300 ${hideNav ? "-translate-y-full" : "translate-y-0"
+                        }`}
+                >
+                    <button
+                        onClick={toggleSidebar}
+                        className="p-2 rounded-md bg-surface-light dark:bg-surface-dark shadow-md"
+                    >
+                        <MenuIcon className="w-6 h-6 text-black dark:text-white" />
+                    </button>
+                    <Avatar className="w-8 h-8" src="/avatar.png" />
+                </nav>
+            )}
 
-            <div
-                className={`fixed inset-0 z-30 bg-black/30 dark:bg-white/10 backdrop-blur-sm transition-opacity duration-300 ease-in-out md:hidden 
-                    ${isSidebarOpen ? "opacity-70" : "opacity-0 pointer-events-none"}`}
-                onClick={closeSidebar}
-            />
+            {/* Overlay khi mở Sidebar mobile */}
+            {isMobile && (
+                <div
+                    className={`fixed inset-0 z-30 bg-black/40 dark:bg-white/10 backdrop-blur-sm transition-opacity duration-300 ease-in-out ${isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                        }`}
+                    onClick={closeSidebar}
+                />
+            )}
 
+            {/* Sidebar */}
             <aside
-                className={`fixed z-40 top-0 left-0 w-72 p-4 flex flex-col justify-between
+                className={`fixed top-0 left-0 z-40 w-75 p-4 h-screen overflow-y-auto flex flex-col justify-between
                     bg-surface-light dark:bg-surface-dark text-black dark:text-white
-                    shadow-lg border border-zinc-300 dark:border-transparent
-                    transition-all duration-300 ease-in-out
-                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-                    h-screen overflow-y-auto
-                    md:translate-x-0 md:top-4 md:left-4 md:h-[calc(100vh-2rem)]
-                    rounded-r-3xl md:rounded-xl`}
-                onClick={(e) => e.stopPropagation()}
+                    border border-zinc-300 dark:border-zinc-700 shadow-lg
+                    transition-transform duration-300 ease-in-out
+                    ${isMobile ? (isSidebarOpen ? "translate-x-0" : "-translate-x-full") : ""}
+                    rounded-tr-2xl rounded-br-2xl rounded-tl-none rounded-bl-none
+                    md:rounded-xl md:top-4 md:left-4 md:h-[calc(100vh-2rem)] md:z-10`}
             >
+                {/* Avatar + Info */}
                 <div>
                     <div className="flex flex-col items-center gap-2 mb-6">
                         <Avatar className="w-30 h-30" src="/avatar.png" />
                         <h2 className="text-xl font-semibold text-center leading-tight">
                             Đoàn Thế Lực - Kaivian
                         </h2>
-                        <p className="text-sm text-gray-400 dark:text-gray-600">Full-Stack Developer</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            Full-Stack Developer
+                        </p>
                         <a
                             href="/resume.pdf"
                             download
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-2 px-6 py-2 rounded-xl text-sm flex items-center gap-1
-                            bg-white border border-zinc-300
-                            dark:bg-black dark:border-zinc-700
-                            hover:bg-zinc-100 dark:hover:bg-zinc-800
-                            transition"
+              bg-surface-light border border-zinc-300
+              dark:bg-surface-dark dark:border-zinc-700
+              hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
                         >
                             <DownloadIcon className="w-4 h-4" />
                             Resume
                         </a>
                     </div>
 
+                    {/* Nav Links */}
                     <nav className="space-y-3 mt-4">
                         {navItems.map((item) => {
                             const isActive = pathname === item.href;
@@ -100,10 +127,9 @@ export default function Sidebar() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition text-[14px] font-medium
-                                    ${isActive
-                                            ? "bg-zinc-300 dark:bg-zinc-700 text-black dark:text-white shadow-md"
-                                            : "hover:bg-zinc-300 hover:text-white dark:hover:bg-zinc-700"
+                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition text-[14px] font-medium ${isActive
+                                        ? "bg-zinc-300 dark:bg-zinc-700 text-black dark:text-white shadow-md"
+                                        : "hover:bg-zinc-300 hover:text-white dark:hover:bg-zinc-700"
                                         }`}
                                 >
                                     {item.icon}
@@ -114,16 +140,16 @@ export default function Sidebar() {
                     </nav>
                 </div>
 
+                {/* Bottom area */}
                 <div className="space-y-3 mt-6">
                     <div className="flex items-center justify-center px-6 py-2 rounded-4xl bg-zinc-200 dark:bg-zinc-800">
-                        <ThemeSwitchButton />
+                        <ThemeSwitch />
                     </div>
-
-                    <p className="text-[10px] text-gray-500 dark:text-gray-700 text-center leading-tight">
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 text-center leading-tight">
                         Designed & Built by Đoàn Thế Lực <br /> © 2025, All rights reserved.
                     </p>
                 </div>
-            </aside>
+            </aside >
         </>
     );
 }

@@ -43,8 +43,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex h-screen overflow-hidden">
-            {/* Sidebar (hidden on mobile) */}
+          <div className="relative flex min-h-screen">
             <Sidebar />
             {children}
           </div>
