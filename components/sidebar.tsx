@@ -103,7 +103,7 @@ export default function Sidebar() {
                                     className={`flex items-center gap-3 px-4 py-3 rounded-xl transition text-[14px] font-medium
                                     ${isActive
                                             ? "bg-zinc-300 dark:bg-zinc-700 text-black dark:text-white shadow-md"
-                                            : "hover:bg-zinc-800 hover:text-white dark:hover:bg-neutral-200 dark:hover:text-black"
+                                            : "hover:bg-zinc-300 hover:text-white dark:hover:bg-zinc-700"
                                         }`}
                                 >
                                     {item.icon}

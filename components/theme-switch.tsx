@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Switch } from "@heroui/switch";
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "lucide-react"
+import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
 
 const ThemeSwitch = () => {
   const { theme, resolvedTheme, setTheme } = useTheme();
@@ -39,8 +39,8 @@ const ThemeSwitch = () => {
         onValueChange={handleThemeChange}
         size="lg"
         color="default"
-        startContent={<SunIcon className="w-4 h-4" />}
-        endContent={<MoonIcon className="w-4 h-4" />}
+        startContent={<SunFilledIcon className="w-4 h-4" />}
+        endContent={<MoonFilledIcon className="w-4 h-4" />}
       />
     </div>
   );
