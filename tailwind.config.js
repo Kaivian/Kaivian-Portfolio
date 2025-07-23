@@ -10,6 +10,15 @@ const config = {
   darkMode: "class",
   theme: {
     extend: {
+      animation: {
+        blink: "blink 0.75s steps(10, start) infinite",
+      },
+      keyframes: {
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
+      },
       colors: {
         background: {
           light: "#f2f1f6",
@@ -23,6 +32,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        orbitron: ["var(--font-orbitron)"],
       },
     },
   },

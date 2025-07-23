@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import { fontOrbitron } from "@/config/fonts";
 
 import Sidebar from "@/components/sidebar";
 
@@ -39,7 +39,8 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen overflow-x-hidden font-sans antialiased",
           "bg-background-light dark:bg-background-dark text-foreground",
-          fontSans.variable
+          fontSans.variable,
+          fontOrbitron.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

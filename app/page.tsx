@@ -1,6 +1,55 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { CalendarIcon } from "@/components/icons";
+
+const phrases = [
+  "Engineering Pixels with Purpose",
+  "Building Ideas into Interfaces",
+  "Code. Design. Iterate.",
+];
+
 export default function Home() {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [speed, setSpeed] = useState(100);
+
+  useEffect(() => {
+    const fullText = phrases[currentPhraseIndex];
+    let timer: NodeJS.Timeout;
+
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setDisplayedText((prev) => prev.slice(0, -1));
+        setSpeed(50);
+      }, speed);
+    } else {
+      timer = setTimeout(() => {
+        setDisplayedText((prev) => fullText.slice(0, prev.length + 1));
+        setSpeed(100);
+      }, speed);
+    }
+
+    if (!isDeleting && displayedText === fullText) {
+      timer = setTimeout(() => setIsDeleting(true), 1500);
+    }
+
+    if (isDeleting && displayedText === "") {
+      setIsDeleting(false);
+      setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting]);
+
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[317px] xl:ml-[317px]">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
@@ -8,10 +57,13 @@ export default function Home() {
         <section className="xl:col-span-2 space-y-6">
           {/* Header */}
           <div className="rounded-xl bg-gradient-to-r from-purple-700 to-indigo-800 p-6">
-            <h2 className="text-xl font-medium">Thu, July 24, 2025</h2>
-            <h1 className="text-3xl font-bold mt-2">
-              Engineering Pixels with Purpose
-              <span className="text-indigo-300">_</span>
+            <h2 className="text-xl font-medium flex items-center gap-2">
+              <CalendarIcon className="w-5 h-5 text-natural" />
+              {currentDate}
+            </h2>
+            <h1 className="text-3xl font-bold font-orbitron">
+              {displayedText}
+              <span className="text-natural animate-blink">_</span>
             </h1>
           </div>
 
