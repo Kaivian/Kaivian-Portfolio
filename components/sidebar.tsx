@@ -86,12 +86,12 @@ export default function Sidebar() {
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 z-40 w-75 p-4 h-screen overflow-y-auto flex flex-col justify-between
+                className={`fixed top-0 left-0 z-40 w-[clamp(80px,25vw,350px)] p-4 h-screen overflow-y-auto flex flex-col justify-between
                     bg-surface-light dark:bg-surface-dark text-black dark:text-white
-                    border border-zinc-300 dark:border-zinc-700 shadow-lg
+                    border border-zinc-300 dark:border-none shadow-lg
                     transition-transform duration-300 ease-in-out
                     ${isMobile ? (isSidebarOpen ? "translate-x-0" : "-translate-x-full") : ""}
-                    rounded-tr-2xl rounded-br-2xl rounded-tl-none rounded-bl-none
+                    rounded-tr-xl rounded-br-2xl rounded-tl-none rounded-bl-none
                     md:rounded-xl md:top-4 md:left-4 md:h-[calc(100vh-2rem)] md:z-10`}
             >
                 {/* Avatar + Info */}
