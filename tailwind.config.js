@@ -12,21 +12,26 @@ const config = {
     extend: {
       animation: {
         blink: "blink 0.75s steps(10, start) infinite",
+        marquee: 'marquee 5s linear infinite',
       },
       keyframes: {
         blink: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-33.333%)' },
+        },
       },
       colors: {
-        background: {
-          light: "#f2f1f6",
-          dark: "#313131",
-        },
         surface: {
-          light: "#ffffff",
           dark: "#212121",
+          light: "#ffffff",
+        },
+        background: {
+          dark: "#313131",
+          light: "#f2f1f6",
         },
       },
       fontFamily: {
