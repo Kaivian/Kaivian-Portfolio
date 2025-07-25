@@ -71,7 +71,7 @@ export default function Home() {
         </section>
 
         {/* Cột phải gộp 2 phần */}
-        <div className="space-y-4">
+        <div className="space-y-4 pb-4">
           <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
             <SkillMarquee />
           </aside>
