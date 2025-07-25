@@ -2,7 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import { CalendarIcon } from "@/components/icons";
-import SkillMarquee from "@/components/SkillMarquee";
+import SkillMarquee from "@/components/about/SkillMarquee";
+import ExpertiseCard from "@/components/about/expertise-card";
+import ContactCard from "@/components/about/contact-card";
 
 const phrases = [
   "Engineering Pixels with Purpose",
@@ -54,6 +56,7 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+17px)]">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+        {/* Phần content bên trái (2 cột) */}
         <section className="xl:col-span-2 space-y-6">
           <div className="rounded-xl bg-gradient-to-r from-purple-700 to-indigo-800 p-6">
             <h2 className="text-xl font-medium flex items-center gap-2">
@@ -67,9 +70,20 @@ export default function Home() {
           </div>
         </section>
 
-        <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg space-y-6 text-gray-900 dark:text-white">
-          <SkillMarquee />
-        </aside>
+        {/* Cột phải gộp 2 phần */}
+        <div className="space-y-4">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+            <SkillMarquee />
+          </aside>
+
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+            <ExpertiseCard />
+          </aside>
+
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+            <ContactCard />
+          </aside>
+        </div>
       </div>
     </main>
   );
