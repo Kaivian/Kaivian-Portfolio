@@ -4,7 +4,6 @@ import { UserCheckIcon, MinecraftIcon } from "@/components/icons";
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import {
     Code2Icon,
-    PaintbrushIcon,
     SearchIcon,
     LayoutDashboardIcon,
 } from "lucide-react";

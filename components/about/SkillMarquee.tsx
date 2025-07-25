@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { FlowIcon, LocationPoint } from "@/components/icons";
+import { Skeleton } from "@heroui/skeleton";
 
 const skills = [
     "/icons/programming/css.svg",
@@ -29,6 +30,20 @@ const orther = [
     "/icons/interest/volleyball.svg",
 ];
 
+function preloadImages(urls: string[]): Promise<void[]> {
+    return Promise.all(
+        urls.map(
+            (url) =>
+                new Promise<void>((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve();
+                    img.onerror = () => reject();
+                    img.src = url;
+                })
+        )
+    );
+}
+
 function MarqueeRow({
     icons,
     reverse = false,
@@ -42,6 +57,7 @@ function MarqueeRow({
     const iconsRef = useRef<HTMLDivElement[]>([]);
     const animationRef = useRef<number>();
     const [paused, setPaused] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const baseSpeed = 0.4;
     const gap = 20;
@@ -49,6 +65,23 @@ function MarqueeRow({
     const targetSpeedRef = useRef(reverse ? -baseSpeed : baseSpeed);
 
     useEffect(() => {
+        let cancelled = false;
+
+        preloadImages(icons)
+            .then(() => {
+                if (!cancelled) setIsLoaded(true);
+            })
+            .catch(() => {
+                if (!cancelled) setIsLoaded(true);
+            });
+
+        return () => {
+            cancelled = true;
+        };
+    }, [icons]);
+
+    useEffect(() => {
+        if (!isLoaded) return;
         const container = containerRef.current;
         if (!container || iconsRef.current.length === 0) return;
 
@@ -86,7 +119,7 @@ function MarqueeRow({
 
         animationRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(animationRef.current!);
-    }, []);
+    }, [isLoaded]);
 
     useEffect(() => {
         targetSpeedRef.current = paused
@@ -97,39 +130,41 @@ function MarqueeRow({
     }, [paused, reverse]);
 
     return (
-        <div
-            ref={containerRef}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            className="relative overflow-hidden w-full"
-            style={{
-                height,
-                WebkitMaskImage:
-                    "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
-                maskImage:
-                    "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskSize: "100% 100%",
-                maskSize: "100% 100%",
-            }}
-        >
-            {icons.map((src, i) => (
-                <div
-                    key={i}
-                    ref={(el) => {
-                        if (el) iconsRef.current[i] = el;
-                    }}
-                    className="absolute top-0 left-0 w-[60px] h-[60px] flex items-center justify-center"
-                >
-                    <img
-                        src={src}
-                        alt={`icon-${i}`}
-                        className="w-10 h-10 object-contain"
-                    />
-                </div>
-            ))}
-        </div>
+        <Skeleton isLoaded={isLoaded} className="rounded-xl w-full">
+            <div
+                ref={containerRef}
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+                className="relative overflow-hidden w-full"
+                style={{
+                    height,
+                    WebkitMaskImage:
+                        "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+                    maskImage:
+                        "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskSize: "100% 100%",
+                    maskSize: "100% 100%",
+                }}
+            >
+                {icons.map((src, i) => (
+                    <div
+                        key={i}
+                        ref={(el) => {
+                            if (el) iconsRef.current[i] = el;
+                        }}
+                        className="absolute top-0 left-0 w-[60px] h-[60px] flex items-center justify-center"
+                    >
+                        <img
+                            src={src}
+                            alt={`icon-${i}`}
+                            className="w-10 h-10 object-contain"
+                        />
+                    </div>
+                ))}
+            </div>
+        </Skeleton>
     );
 }
 

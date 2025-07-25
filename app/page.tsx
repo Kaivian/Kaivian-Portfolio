@@ -54,7 +54,7 @@ export default function Home() {
   });
 
   return (
-    <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+17px)]">
+    <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+18px)]">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
         {/* Phần content bên trái (2 cột) */}
         <section className="xl:col-span-2 space-y-6">

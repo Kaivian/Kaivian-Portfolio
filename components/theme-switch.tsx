@@ -31,16 +31,16 @@ const ThemeSwitch = () => {
   return (
     <div className="flex items-center gap-2">
       <span className="text-md font-medium text-default-700 text-[14px]">
-        {theme === "system" ? "System theme" : isDark ? "Light mode" : "Dark mode"}
+        {theme === "system" ? "System theme" : isDark ? "Dark mode" : "Light mode"}
       </span>
 
       <Switch
         isSelected={isDark}
         onValueChange={handleThemeChange}
-        size="lg"
+        size="md"
         color="default"
-        startContent={<SunFilledIcon className="w-4 h-4" />}
-        endContent={<MoonFilledIcon className="w-4 h-4" />}
+        startContent={<SunFilledIcon className="w-3 h-3" />}
+        endContent={<MoonFilledIcon className="w-3 h-3" />}
       />
     </div>
   );

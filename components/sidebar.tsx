@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Avatar } from "@heroui/avatar";
+import { Skeleton } from "@heroui/skeleton";
 import ThemeSwitch from "@/components/theme-switch";
 import useHideOnScroll from "@/hooks/useHideOnScroll";
 
@@ -29,6 +30,7 @@ export default function Sidebar() {
     const pathname = usePathname();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [loadingTheme, setLoadingTheme] = useState(true);
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
     const closeSidebar = () => setSidebarOpen(false);
@@ -38,22 +40,26 @@ export default function Sidebar() {
         const handleResize = () => {
             const mobile = window.innerWidth < 768;
             setIsMobile(mobile);
-            setSidebarOpen(!mobile); // auto open on desktop, close on mobile
+            setSidebarOpen(!mobile);
         };
-        handleResize(); // run once
+        handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const hideNav = useHideOnScroll(isMobile); // only apply on mobile
+    // Fake theme loading
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoadingTheme(false);
+        }, 300);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    const hideNav = useHideOnScroll(isMobile);
 
     useEffect(() => {
         if (isMobile) {
-            if (isSidebarOpen) {
-                document.body.classList.add("overflow-hidden");
-            } else {
-                document.body.classList.remove("overflow-hidden");
-            }
+            document.body.classList.toggle("overflow-hidden", isSidebarOpen);
         }
     }, [isSidebarOpen, isMobile]);
 
@@ -142,14 +148,14 @@ export default function Sidebar() {
 
                 {/* Bottom area */}
                 <div className="space-y-3 mt-6">
-                    <div className="flex items-center justify-center px-6 py-2 rounded-4xl bg-zinc-200 dark:bg-zinc-800">
+                    <div className="flex items-center justify-center px-6 py-2 rounded-4xl bg-zinc-200 dark:bg-zinc-800 min-h-[45px]">
                         <ThemeSwitch />
                     </div>
                     <p className="text-[10px] text-gray-500 dark:text-gray-400 text-center leading-tight">
                         Designed & Built by Đoàn Thế Lực <br /> © 2025, All rights reserved.
                     </p>
                 </div>
-            </aside >
+            </aside>
         </>
     );
 }
