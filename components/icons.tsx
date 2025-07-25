@@ -119,3 +119,51 @@ export const LocationPoint = ({
     <path d="M29.1,16.9l-2.9-.4-1.3-2.9a1,1,0,0,0-1.8,0l-1.3,2.9-2.9.4a1.1,1.1,0,0,0-.6,1.8l2.1,2-.5,3.1a1.1,1.1,0,0,0,1.5,1.1L24,23l2.6,1.9a1.1,1.1,0,0,0,1.5-1.1l-.5-3.1,2.1-2A1.1,1.1,0,0,0,29.1,16.9Z" />
   </svg>
 );
+
+export const UserCheckIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    stroke="currentColor"
+    fill="none"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    height={height ?? size}
+    width={width ?? size}
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+    {...props}
+  >
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <polyline points="16 11 18 13 22 9" />
+  </svg>
+);
+
+export const MinecraftIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}: IconSvgProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 192 180"
+    fill="currentColor"
+    height={height ?? size}
+    width={width ?? size}
+    aria-hidden="true"
+    focusable="false"
+    role="presentation"
+    {...props}
+  >
+    <path d="M27.55 22v45.33h45.33v23.12h-22.2V170h22.2v-34.23h46.24V170h22.21V90.45h-22.21V67.33h45.33V22h-45.33v45.33H72.88V22H27.55z" />
+  </svg>
+);

@@ -31,7 +31,7 @@ const ThemeSwitch = () => {
   return (
     <div className="flex items-center gap-2">
       <span className="text-md font-medium text-default-700 text-[14px]">
-        {theme === "system" ? "System theme" : isDark ? "Dark mode" : "Light mode"}
+        {theme === "system" ? "System theme" : isDark ? "Light mode" : "Dark mode"}
       </span>
 
       <Switch

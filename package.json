@@ -1,7 +1,6 @@
 {
   "name": "next-app-template",
   "version": "0.0.1",
-  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -10,6 +9,7 @@
     "lint": "eslint --fix"
   },
   "dependencies": {
+    "@heroui/accordion": "^2.2.20",
     "@heroui/avatar": "^2.2.19",
     "@heroui/button": "2.2.23",
     "@heroui/code": "2.2.17",

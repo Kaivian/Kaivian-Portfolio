@@ -43,8 +43,8 @@ function MarqueeRow({
     const animationRef = useRef<number>();
     const [paused, setPaused] = useState(false);
 
-    const baseSpeed = 0.3;
-    const gap = 32;
+    const baseSpeed = 0.4;
+    const gap = 20;
     const currentSpeedRef = useRef(reverse ? -baseSpeed : baseSpeed);
     const targetSpeedRef = useRef(reverse ? -baseSpeed : baseSpeed);
 
