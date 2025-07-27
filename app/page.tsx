@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { CalendarIcon } from "@/components/icons";
-import SkillMarquee from "@/components/about/SkillMarquee";
-import ExpertiseCard from "@/components/about/expertise-card";
-import ContactCard from "@/components/about/contact-card";
+import SkillMarquee from "@/components/home/SkillMarquee";
+import ExpertiseCard from "@/components/home/expertise-card";
+import ContactCard from "@/components/home/contact-card";
 
 const phrases = [
   "Engineering Pixels with Purpose",
@@ -18,7 +18,10 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [speed, setSpeed] = useState(100);
 
+  const [isClient, setIsClient] = useState(false)
+
   useEffect(() => {
+    setIsClient(true)
     const fullText = phrases[currentPhraseIndex];
     let timer: NodeJS.Timeout;
 
