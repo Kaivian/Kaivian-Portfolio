@@ -59,10 +59,10 @@ export default function Home() {
   }, [displayedText, isDeleting]);
 
   return (
-    <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+17px)]">
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+    <main className="min-h-screen w-full px-[18px] pt-20 md:pt-[18px] md:ml-[calc(min(100vw*0.25,450px)+18px)]">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-[18px]">
         {/* Left content */}
-        <section className="xl:col-span-2 space-y-6">
+        <section className="xl:col-span-2">
           <div className="rounded-xl bg-gradient-to-r from-purple-700 to-indigo-800 p-6">
             <h2 className="text-xl font-medium flex items-center gap-2">
               <CalendarIcon className="w-5 h-5 text-natural" />
@@ -76,7 +76,7 @@ export default function Home() {
         </section>
 
         {/* Right content */}
-        <div className="space-y-4 pb-4">
+        <div className="space-y-[18px]">
           <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
             <SkillMarquee />
           </aside>
