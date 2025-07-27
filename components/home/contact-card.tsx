@@ -60,7 +60,7 @@ export default function ContactCard() {
                 ))}
             </div>
 
-            <p className="text-[12px] text-gray-400">
+            <p className="text-[11px] text-[#999999]">
                 Let&apos;s build something great together — feel free to connect with me
                 through any of the platforms above.
             </p>

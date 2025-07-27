@@ -151,7 +151,7 @@ export default function Sidebar() {
                     <div className="flex items-center justify-center px-6 py-2 rounded-4xl bg-zinc-200 dark:bg-zinc-800 min-h-[45px]">
                         <ThemeSwitch />
                     </div>
-                    <p className="text-[10px] text-gray-500 dark:text-gray-400 text-center leading-tight">
+                    <p className="text-[10px] text-[#999999] text-center leading-tight">
                         Designed & Built by Đoàn Thế Lực <br /> © 2025, All rights reserved.
                     </p>
                 </div>
