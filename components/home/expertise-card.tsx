@@ -12,7 +12,7 @@ import {
 const expertiseList = [
     {
         icon: (
-            <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-indigo-600">
+            <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-400 via-pink-400 to-indigo-500">
                 <Code2Icon className="text-white" size={22} />
             </div>
         ),
@@ -57,7 +57,7 @@ const expertiseList = [
     },
     {
         icon: (
-            <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-600">
+            <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-400 via-indigo-400 to-violet-500">
                 <MonitorCog className="text-white" size={22} />
             </div>
         ),
