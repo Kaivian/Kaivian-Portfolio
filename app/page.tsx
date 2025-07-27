@@ -20,7 +20,6 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    // Only run on client
     const now = new Date();
     const formatted = now.toLocaleDateString("en-US", {
       weekday: "short",

@@ -3,6 +3,7 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { SiGmail, SiSpigotmc } from "react-icons/si";
 import { Mail } from "lucide-react";
+import { Tooltip } from "@heroui/tooltip";
 
 const socials = [
     {
@@ -47,16 +48,17 @@ export default function ContactCard() {
 
             <div className="flex items-center space-x-4">
                 {socials.map((social) => (
-                    <a
-                        key={social.name}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.name}
-                        className="hover:text-gray-500 transition-colors"
-                    >
-                        {social.icon}
-                    </a>
+                    <Tooltip key={social.name} content={social.name} showArrow={true}>
+                        <a
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={social.name}
+                            className="hover:text-gray-500 transition-colors"
+                        >
+                            {social.icon}
+                        </a>
+                    </Tooltip>
                 ))}
             </div>
 
