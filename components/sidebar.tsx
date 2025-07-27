@@ -29,7 +29,6 @@ export default function Sidebar() {
     const pathname = usePathname();
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-    const [loadingTheme, setLoadingTheme] = useState(true);
 
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
     const closeSidebar = () => setSidebarOpen(false);
@@ -44,14 +43,6 @@ export default function Sidebar() {
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // Fake theme loading
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setLoadingTheme(false);
-        }, 300);
-        return () => clearTimeout(timeout);
     }, []);
 
     const hideNav = useHideOnScroll(isMobile);
