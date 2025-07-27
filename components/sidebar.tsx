@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Avatar } from "@heroui/avatar";
-import { Skeleton } from "@heroui/skeleton";
 import ThemeSwitch from "@/components/theme-switch";
 import useHideOnScroll from "@/hooks/useHideOnScroll";
 

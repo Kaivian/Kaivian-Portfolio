@@ -60,7 +60,7 @@ export default function Home() {
   }, [displayedText, isDeleting]);
 
   return (
-    <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+18px)]">
+    <main className="min-h-screen w-full px-4 pt-20 md:pt-4 md:ml-[calc(min(100vw*0.25,350px)+17px)]">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
         {/* Left content */}
         <section className="xl:col-span-2 space-y-6">
