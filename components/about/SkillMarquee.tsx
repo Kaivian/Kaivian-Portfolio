@@ -5,19 +5,19 @@ import { FlowIcon, LocationPoint } from "@/components/icons";
 import { Skeleton } from "@heroui/skeleton";
 
 const skills = [
-    "/icons/programming/css.svg",
-    "/icons/programming/github.svg",
     "/icons/programming/html-5.svg",
-    "/icons/programming/java.svg",
+    "/icons/programming/css.svg",
     "/icons/programming/javascript.svg",
+    "/icons/programming/vite.svg",
+    "/icons/programming/react.svg",
+    "/icons/programming/typescript.svg",
+    "/icons/programming/tailwind.svg",
     "/icons/programming/mongo.svg",
+    "/icons/programming/java.svg",
+    "/icons/programming/spring.svg",
     "/icons/programming/mysql.svg",
     "/icons/programming/python.svg",
-    "/icons/programming/react.svg",
-    "/icons/programming/spring.svg",
-    "/icons/programming/tailwind.svg",
-    "/icons/programming/typescript.svg",
-    "/icons/programming/vite.svg",
+    "/icons/programming/github.svg",
 ];
 
 const orther = [
@@ -28,6 +28,11 @@ const orther = [
     "/icons/interest/minecraft.svg",
     "/icons/interest/roblox.svg",
     "/icons/interest/volleyball.svg",
+    "/icons/interest/eclipse.svg",
+    "/icons/interest/intellij.svg",
+    "/icons/interest/sublime.svg",
+    "/icons/interest/visual-studio.svg",
+    "/icons/interest/visual-studio-code.svg",
 ];
 
 function preloadImages(urls: string[]): Promise<void[]> {
