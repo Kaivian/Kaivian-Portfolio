@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/globals.css";
+
 import { useEffect, useState } from "react";
 import { CalendarIcon } from "@/components/icons";
 import SkillMarquee from "@/components/home/SkillMarquee";
