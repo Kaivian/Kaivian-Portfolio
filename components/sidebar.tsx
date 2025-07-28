@@ -82,7 +82,7 @@ export default function Sidebar() {
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 max-sm:w-[clamp(80px,75vw,450px)] md:w-[clamp(80px,25vw,450px)] p-[18px] h-screen overflow-y-auto flex flex-col justify-between
+                className={`fixed top-0 z-40 left-0 max-sm:w-[clamp(80px,75vw,450px)] md:w-[clamp(80px,25vw,450px)] p-[18px] h-screen overflow-y-auto flex flex-col justify-between
                     bg-surface-light dark:bg-surface-dark text-black dark:text-white
                     border border-zinc-300 dark:border-none shadow-lg
                     transition-transform duration-300 ease-in-out
