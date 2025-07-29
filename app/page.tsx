@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { CalendarIcon } from "@/components/icons";
 import SkillMarquee from "@/components/home/SkillMarquee";
 import ExpertiseCard from "@/components/home/expertise-card";
-import ContactCard from "@/components/home/contact-card";
+import ContactCard from "@/components/contact-card";
 
 export default function Home() {
   const [date, setDate] = useState("");

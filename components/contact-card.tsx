@@ -1,6 +1,6 @@
 "use client";
 
-import { FaFacebook, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaPhone, FaDiscord } from "react-icons/fa";
 import { SiGmail, SiSpigotmc } from "react-icons/si";
 import { Mail } from "lucide-react";
 import { Tooltip } from "@heroui/tooltip";
@@ -12,14 +12,14 @@ const socials = [
         href: "mailto:theluc.1746@gmail.com",
     },
     {
+        name: "Phone",
+        icon: <FaPhone className="w-5 h-5" />,
+        href: "tel:+84969442579",
+    },
+    {
         name: "Facebook",
         icon: <FaFacebook className="w-6 h-6" />,
         href: "https://www.facebook.com/dt.luc1746",
-    },
-    {
-        name: "GitHub",
-        icon: <FaGithub className="w-6 h-6" />,
-        href: "https://github.com/Kaivian",
     },
     {
         name: "LinkedIn",
@@ -27,14 +27,19 @@ const socials = [
         href: "https://www.linkedin.com/in/kaivian/",
     },
     {
+        name: "GitHub",
+        icon: <FaGithub className="w-6 h-6" />,
+        href: "https://github.com/Kaivian",
+    },
+    {
+        name: "Discord",
+        icon: <FaDiscord className="w-6 h-6" />,
+        href: "https://discordapp.com/users/591157562821443594",
+    },
+    {
         name: "SpigotMC",
         icon: <SiSpigotmc className="w-6 h-6" />,
         href: "https://www.spigotmc.org/members/kaivian.2315121/",
-    },
-    {
-        name: "Phone",
-        icon: <FaPhone className="w-5 h-5" />,
-        href: "tel:+84969442579",
     },
 ];
 
