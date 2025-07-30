@@ -21,6 +21,10 @@ export default function Home() {
     "Code. Design. Iterate.",
   ];
 
+  const fullTextExpected = phrases.reduce((longest, current) =>
+    current.length > longest.length ? current : longest
+  );
+
   useEffect(() => {
     const now = new Date();
     const formatted = now.toLocaleDateString("en-US", {
@@ -66,19 +70,32 @@ export default function Home() {
         {/* Left content */}
         <section className="xl:col-span-2">
           <div className="rounded-xl bg-gradient-to-r from-purple-700 to-indigo-800 p-6">
-            <h2 className="text-xl font-medium flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5 text-natural" />
-              {date && <span>{date}</span>}
+            <h2 className="xl:pl-[10px] xl:pt-[5px] text-xl font-medium flex items-center gap-2 overflow-hidden">
+              <CalendarIcon className="w-5 h-5 text-natural shrink-0" />
+              {date && (
+                <span className="truncate block w-full text-base sm:text-lg md:text-xl lg:text-xl">
+                  {date}
+                </span>
+              )}
             </h2>
-            <h1 className="text-3xl font-bold font-orbitron">
-              {displayedText}
-              <span className="text-natural animate-blink">_</span>
-            </h1>
+
+            <div
+              className="xl:pl-[10px] font-bold font-orbitron text-natural flex flex-col justify-end overflow-hidden h-[8em] md:h-[8em] xl:h-[12em]"
+              style={{
+                fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
+                lineHeight: "1.4",
+              }}
+            >
+              <span className="whitespace-pre-wrap break-words">
+                {displayedText}
+                <span className="animate-blink">_</span>
+              </span>
+            </div>
           </div>
         </section>
 
         {/* Right content */}
-        <div className="space-y-[18px]">
+        <div className="space-y-[18px] pb-[18px]">
           <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
             <SkillMarquee />
           </aside>
