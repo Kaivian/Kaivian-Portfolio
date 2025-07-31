@@ -69,8 +69,16 @@ export default function Home() {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-[18px]">
         {/* Left content */}
         <section className="xl:col-span-2">
-          <div className="rounded-xl bg-gradient-to-r from-purple-700 to-indigo-800 p-6">
-            <h2 className="xl:pl-[10px] xl:pt-[5px] text-xl font-medium flex items-center gap-2 overflow-hidden">
+          <div
+            className="rounded-xl p-6 bg-cover bg-no-repeat y-4 bg-[position:right_bottom]"
+            style={{
+              backgroundImage: "url('/banner-home.jpg')",
+            }}
+          >
+            <h2 className="xl:pl-[10px] xl:pt-[5px] text-xl font-medium flex items-center gap-2 overflow-hidden text-white drop-shadow-md"
+              style={{
+                textShadow: "0 1px 3px rgba(0,0,0,0.7)",
+              }}>
               <CalendarIcon className="w-5 h-5 text-natural shrink-0" />
               {date && (
                 <span className="truncate block w-full text-base sm:text-lg md:text-xl lg:text-xl">
@@ -80,10 +88,11 @@ export default function Home() {
             </h2>
 
             <div
-              className="xl:pl-[10px] font-bold font-orbitron text-natural flex flex-col justify-end overflow-hidden h-[8em] md:h-[8em] xl:h-[12em]"
+              className="xl:pl-[10px] font-bold font-orbitron text-white drop-shadow-md flex flex-col justify-end overflow-hidden h-[8em] md:h-[8em] xl:h-[12em]"
               style={{
                 fontSize: "clamp(1.75rem, 5vw, 2.5rem)",
                 lineHeight: "1.4",
+                textShadow: "0 1px 3px rgba(0,0,0,0.3)",
               }}
             >
               <span className="whitespace-pre-wrap break-words">
