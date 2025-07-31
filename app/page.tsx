@@ -70,7 +70,7 @@ export default function Home() {
         {/* Left content */}
         <section className="xl:col-span-2">
           <div
-            className="rounded-xl p-6 bg-cover bg-no-repeat y-4 bg-[position:right_bottom]"
+            className="rounded-xl p-6 bg-cover bg-no-repeat y-4 bg-[position:right_bottom] border border-zinc-300 dark:border-surface-dark shadow-lg"
             style={{
               backgroundImage: "url('/banner-home.jpg')",
             }}
@@ -105,15 +105,15 @@ export default function Home() {
 
         {/* Right content */}
         <div className="space-y-[18px] pb-[18px]">
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-surface-dark shadow-lg">
             <SkillMarquee />
           </aside>
 
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-surface-dark shadow-lg">
             <ExpertiseCard />
           </aside>
 
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-surface-dark shadow-lg">
             <ContactCard />
           </aside>
         </div>
