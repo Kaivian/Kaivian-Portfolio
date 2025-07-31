@@ -105,15 +105,15 @@ export default function Home() {
 
         {/* Right content */}
         <div className="space-y-[18px] pb-[18px]">
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
             <SkillMarquee />
           </aside>
 
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
             <ExpertiseCard />
           </aside>
 
-          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 shadow-lg text-gray-900 dark:text-white">
+          <aside className="rounded-xl bg-surface-light dark:bg-surface-dark p-6 text-gray-900 dark:text-white border border-zinc-300 dark:border-none shadow-lg">
             <ContactCard />
           </aside>
         </div>
