@@ -7,6 +7,7 @@ import { CalendarIcon } from "@/components/icons";
 import SkillMarquee from "@/components/home/SkillMarquee";
 import ExpertiseCard from "@/components/home/expertise-card";
 import ContactCard from "@/components/contact-card";
+import CareerStats from "@/components/home/career-stats";
 
 export default function Home() {
   const [date, setDate] = useState("");
@@ -100,6 +101,9 @@ export default function Home() {
                 <span className="animate-blink">_</span>
               </span>
             </div>
+          </div>
+          <div className="pt-[18px]">
+            <CareerStats />
           </div>
         </section>
 
