@@ -56,7 +56,7 @@ export default function CareerStats() {
               key={idx}
               className="text-center text-white border-none shadow-sm bg-background-light dark:bg-background-dark transition duration-200 ease-in-out hover:bg-blue-200 dark:hover:bg-slate-700"
             >
-              <CardBody className="flex flex-col justify-center gap-2 p-4 text-gray-900 dark:text-white">
+              <CardBody className="flex flex-col justify-center p-[18px] text-gray-900 dark:text-white">
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center`}
@@ -64,13 +64,13 @@ export default function CareerStats() {
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-3xl font-bold leading-tight py-2">{count}</span>
+                    <span className="text-3xl font-bold leading-tight">{count}</span>
                     {unit && (
-                      <span className="text-md text-black dark:text-white relative -top-[1px]">{unit}</span>
+                      <span className="text-md text-black dark:text-white relative -top-[3px]">{unit}</span>
                     )}
                   </div>
                 </div>
-                <div className="mt-2 text-md font-medium text-black dark:text-white">
+                <div className="mt-3 text-md font-medium text-black dark:text-white">
                   {label}
                 </div>
               </CardBody>

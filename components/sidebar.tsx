@@ -58,7 +58,7 @@ export default function Sidebar() {
             {/* Mobile Nav Bar */}
             {isMobile && (
                 <nav
-                    className={`fixed top-0 left-0 w-full h-16 z-20 bg-surface-light dark:bg-surface-dark backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 px-4 flex items-center justify-between md:hidden shadow-md transition-transform duration-300 ${hideNav ? "-translate-y-full" : "translate-y-0"
+                    className={`fixed top-0 left-0 w-full h-16 z-20 bg-surface-light dark:bg-surface-dark backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 px-[18px] flex items-center justify-between md:hidden shadow-md transition-transform duration-300 ${hideNav ? "-translate-y-full" : "translate-y-0"
                         }`}
                 >
                     <button
@@ -123,7 +123,7 @@ export default function Sidebar() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition text-[14px] font-medium ${isActive
+                                    className={`flex items-center gap-3 px-[18px] py-3 rounded-xl transition text-[14px] font-medium ${isActive
                                         ? "bg-zinc-300 dark:bg-zinc-700 text-black dark:text-white shadow-md"
                                         : "hover:bg-zinc-300 hover:text-white dark:hover:bg-zinc-700"
                                         }`}
