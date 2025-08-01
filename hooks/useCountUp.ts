@@ -15,7 +15,7 @@ export function useCountUp(to: number, duration = 1000) {
       if (progress < duration) {
         requestAnimationFrame(step);
       } else {
-        setCount(to); // Ensure final value
+        setCount(to);
       }
     };
 

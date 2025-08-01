@@ -54,7 +54,7 @@ export default function CareerStats() {
           return (
             <Card
               key={idx}
-              className="text-center text-white border-none shadow-sm bg-background-light dark:bg-background-dark transition duration-300 ease-in-out hover:bg-blue-200 dark:hover:bg-slate-700"
+              className="text-center text-white border-none shadow-sm bg-background-light dark:bg-background-dark transition duration-200 ease-in-out hover:bg-blue-200 dark:hover:bg-slate-700"
             >
               <CardBody className="flex flex-col justify-center gap-2 p-4 text-gray-900 dark:text-white">
                 <div className="flex items-center gap-3">

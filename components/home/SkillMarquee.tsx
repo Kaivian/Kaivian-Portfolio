@@ -180,7 +180,7 @@ export default function SkillMarquee() {
             <div>
                 <div className="flex items-center space-x-2 mb-2">
                     <FlowIcon className="w-6 h-6 text-gray-900 dark:text-white" />
-                    <h2 className="text-xl font-semibold tracking-wide capitalize text-sm text-gray-900 dark:text-white">
+                    <h2 className="text-xl font-semibold tracking-wide capitalize text-gray-900 dark:text-white">
                         Skill set
                     </h2>
                 </div>
@@ -191,7 +191,7 @@ export default function SkillMarquee() {
             <div>
                 <div className="flex items-center space-x-2 mb-2">
                     <LocationPoint className="w-6 h-6 text-gray-900 dark:text-white" />
-                    <h2 className="text-xl font-semibold tracking-wide capitalize text-sm text-gray-900 dark:text-white">
+                    <h2 className="text-xl font-semibold tracking-wide capitalize text-gray-900 dark:text-white">
                         Other
                     </h2>
                 </div>
