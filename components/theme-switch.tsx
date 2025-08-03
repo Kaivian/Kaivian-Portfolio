@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Switch } from "@heroui/switch";
+import { Switch } from "@heroui/react";
 import { Skeleton } from "@heroui/skeleton";
 import { useTheme } from "next-themes";
 import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";

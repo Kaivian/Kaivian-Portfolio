@@ -44,8 +44,8 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex min-h-screen">
-            <Sidebar />
+          <div className="relative flex">
+            <Sidebar/>
             {children}
           </div>
         </Providers>

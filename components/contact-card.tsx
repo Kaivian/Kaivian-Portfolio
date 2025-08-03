@@ -3,7 +3,7 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaPhone, FaDiscord } from "react-icons/fa";
 import { SiGmail, SiSpigotmc } from "react-icons/si";
 import { Mail } from "lucide-react";
-import { Tooltip } from "@heroui/tooltip";
+import { Tooltip } from "@heroui/react";
 
 const socials = [
     {
