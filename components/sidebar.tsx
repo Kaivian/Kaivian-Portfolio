@@ -118,7 +118,8 @@ export default function Sidebar() {
                     {/* Nav Links */}
                     <nav className="space-y-3 mt-4">
                         {navItems.map((item) => {
-                            const isActive = pathname === item.href;
+                            const normalizePath = (path: string) => path.replace(/\/+$/, "") || "/";
+                            const isActive = normalizePath(pathname) === normalizePath(item.href);
                             return (
                                 <Link
                                     key={item.href}
